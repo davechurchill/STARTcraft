@@ -1,4 +1,4 @@
-# StartCraft
+# STARTcraft
 
 Get started with Starcraft AI Development as fast as possible. 
 
