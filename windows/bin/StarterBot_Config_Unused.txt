@@ -1,0 +1,41 @@
+{
+    "Bot Info" :
+    {
+        "BotName"                   : "Starter Bot",
+        "Authors"                   : "David Churchill",
+        "PrintInfoOnStart"          : false
+    },
+        
+    "BWAPI" : 
+    {
+        "SetLocalSpeed"             : 0,
+        "SetFrameSkip"              : 0,
+        "UserInput"                 : true,
+        "CompleteMapInformation"    : false
+    },
+    
+    "Debug" :
+    {
+        "DrawGameInfo"              : true,   
+        "DrawUnitHealthBars"        : true,
+        "DrawProductionInfo"        : true,
+        "DrawWalkableSectors"       : false,
+        "DrawTileInfo"              : false,       
+        "DrawBuildOrderSearchInfo"  : false,
+        "DrawScoutInfo"             : false,
+        "DrawEnemyUnitInfo"         : false,
+        "DrawModuleTimers"          : false,
+        "DrawResourceInfo"          : false,
+        "DrawCombatSimInfo"         : false,
+        "DrawUnitTargetInfo"        : false,
+        "DrawBWTAInfo"              : false,
+        "DrawMapGrid"               : false,
+        "DrawSquadInfo"             : false,
+        "DrawWorkerInfo"            : false,
+        "DrawMouseCursorInfo"       : false,
+        "DrawBuildingInfo"          : false,
+        "DrawReservedBuildingTiles" : false,
+        "DrawBOSSStateInfo"         : false,
+        "PrintModuleTimeout"        : false
+    }
+}
