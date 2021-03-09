@@ -2,6 +2,8 @@
 
 Get started with Starcraft AI Development as fast as possible. 
 
+New to Starfcraft or AI Programming? Watch the tutorial video: https://www.youtube.com/watch?v=czhNqUxmLks
+
 Currently Supported (more coming soon):
 * Windows / C++ Development using BWAPI
 
