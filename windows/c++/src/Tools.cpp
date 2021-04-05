@@ -6,7 +6,7 @@ BWAPI::Unit Tools::GetClosestUnitTo(BWAPI::Position p, const BWAPI::Unitset& uni
 
     for (auto& u : units)
     {
-        if (!closestUnit || u->getDistance(p) < u->getDistance(closestUnit))
+        if (!closestUnit || u->getDistance(p) < closestUnit->getDistance(p))
         {
             closestUnit = u;
         }
