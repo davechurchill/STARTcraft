@@ -2,7 +2,7 @@
 
 Get started with Starcraft AI Development as fast as possible. 
 
-New to Starfcraft or AI Programming? Watch the tutorial video(s): 
+New to StarCraft or AI Programming? Watch the tutorial video(s): 
 * Starcraft AI Intro: https://www.youtube.com/watch?v=czhNqUxmLks
 * STARTcraft Tutorial: https://www.youtube.com/watch?v=FEEkO6__GKw
 
