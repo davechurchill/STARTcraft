@@ -4,7 +4,7 @@ Get started with Starcraft AI Development as fast as possible.
 
 New to Starfcraft or AI Programming? Watch the tutorial video(s): 
 * Starcraft AI Intro: https://www.youtube.com/watch?v=czhNqUxmLks
-* STARTcraft Programming: https://www.youtube.com/watch?v=FEEkO6__GKw
+* STARTcraft Tutorial: https://www.youtube.com/watch?v=FEEkO6__GKw
 
 Currently Supported (more coming soon):
 * Windows / C++ Development using BWAPI
