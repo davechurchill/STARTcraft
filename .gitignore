@@ -11,6 +11,7 @@ windows/starcraft/*.dll
 windows/starcraft/*.ini
 windows/starcraft/*.MPQ
 windows/starcraft/*.mpq
+windows/starcraftfull
 *.sdf
 *.suo
 *.opensdf
@@ -29,3 +30,5 @@ windows/starcraft/*.mpq
 *.map
 *.pdb
 *.ilk
+*.ERR
+windows/bin/StarterBot_d.exe
