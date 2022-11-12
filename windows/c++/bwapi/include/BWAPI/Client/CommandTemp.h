@@ -9,6 +9,7 @@
 
 namespace BWAPI
 {
+  class Command;
   template <class UnitImpl, class PlayerImpl>
   class CommandTemp
   {
