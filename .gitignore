@@ -1,5 +1,5 @@
-windows/c++/visualstudio/Release
-windows/c++/visualstudio/Debug
+windows/c++/visualstudio/x64
+windows/c++/visualstudio/Win32
 windows/c++/visualstudio/.vs
 windows/starcraft/bwapi-data/*
 windows/starcraft/characters/*
