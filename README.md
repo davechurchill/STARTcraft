@@ -1,6 +1,6 @@
 # STARTcraft
 
-Get started with Starcraft AI Development as fast as possible. 
+Get started with Starcraft: BroodWar AI Development as fast as possible. 
 
 New to StarCraft or AI Programming? Watch the tutorial video(s): 
 * Starcraft AI Intro: https://www.youtube.com/watch?v=czhNqUxmLks
