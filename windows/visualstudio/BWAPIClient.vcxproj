@@ -19,41 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\bwapi\BWAPILIB\AIModule.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\BroodwarOutputDevice.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\BulletType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\BWAPI.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Color.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\DamageType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Error.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Event.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\ExplosionType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Filters.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Forceset.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Game.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\GameType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Order.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Player.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Playerset.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\PlayerType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Position.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Race.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Region.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Regionset.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Streams.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\TechType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Unit.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\UnitCommand.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\UnitCommandType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\Unitset.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\UnitSizeType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\UnitType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\UpgradeType.cpp" />
-    <ClCompile Include="..\bwapi\BWAPILIB\WeaponType.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\BulletImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\Client.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\ForceImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\GameImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\PlayerImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\RegionImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\UnitImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\BulletShared.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\ForceShared.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\GameShared.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\PlayerShared.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\RegionShared.cpp" />
+    <ClCompile Include="..\..\src\bwapi\shared\UnitShared.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Command.h" />
+    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Convenience.h" />
+    <ClInclude Include="..\..\src\bwapi\shared\Templates.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>BWAPILIB</ProjectName>
-    <ProjectGuid>{4BF551AD-18E0-4272-BB42-41C4DB3E02D8}</ProjectGuid>
+    <ProjectName>BWAPIClient</ProjectName>
+    <ProjectGuid>{478C4FE4-2662-4441-A977-2D17C418E46E}</ProjectGuid>
     <RootNamespace>ExampleAIModule</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -147,7 +134,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../bwapi/include/BWAPI/Client;../bwapi/include;../bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -160,6 +146,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>../bwapi/lib/Debug/BWAPILIB.lib;../bwapi/lib/Debug/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -172,7 +159,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../bwapi/include/BWAPI/Client;../bwapi/include;../bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -185,6 +171,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>../bwapi/lib/Debug/BWAPILIB.lib;../bwapi/lib/Debug/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -197,7 +184,6 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../bwapi/include/BWAPI/Client;../bwapi/include;../bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -214,6 +200,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ProgramDataBaseFileName />
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -235,7 +222,6 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../bwapi/include/BWAPI/Client;../bwapi/include;../bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -253,6 +239,7 @@
       <ProgramDataBaseFileName>
       </ProgramDataBaseFileName>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

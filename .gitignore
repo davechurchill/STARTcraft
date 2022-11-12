@@ -1,6 +1,6 @@
-windows/c++/visualstudio/x64
-windows/c++/visualstudio/Win32
-windows/c++/visualstudio/.vs
+windows/visualstudio/x64
+windows/visualstudio/Win32
+windows/visualstudio/.vs
 windows/starcraft/bwapi-data/*
 windows/starcraft/characters/*
 windows/starcraft/maps/*
@@ -32,3 +32,4 @@ windows/starcraftfull
 *.ilk
 *.ERR
 windows/bin/StarterBot_d.exe
+bin/StarterBot_d.exe
