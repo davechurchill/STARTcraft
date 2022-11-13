@@ -109,25 +109,25 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <GenerateManifest>false</GenerateManifest>
-    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPIClient;$(SolutionDir)\$(Platform)\$(Configuration)\BWAPILIB;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <GenerateManifest>false</GenerateManifest>
-    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPIClient;$(SolutionDir)\$(Platform)\$(Configuration)\BWAPILIB;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPIClient;$(SolutionDir)\$(Platform)\$(Configuration)\BWAPILIB;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPIClient;$(SolutionDir)\$(Platform)\$(Configuration)\BWAPILIB;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
@@ -149,7 +149,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>BWAPILIB.lib;BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -174,7 +174,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>BWAPILIB.lib;BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
@@ -206,7 +206,7 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>BWAPILIB.lib;BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -245,7 +245,7 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>BWAPILIB.lib;BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>

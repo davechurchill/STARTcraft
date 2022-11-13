@@ -19,6 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\BulletImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\Client.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\ForceImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\GameImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\PlayerImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\RegionImpl.cpp" />
+    <ClCompile Include="..\..\src\bwapi\BWAPIClient\UnitImpl.cpp" />
     <ClCompile Include="..\..\src\bwapi\BWAPILIB\AIModule.cpp" />
     <ClCompile Include="..\..\src\bwapi\BWAPILIB\BroodwarOutputDevice.cpp" />
     <ClCompile Include="..\..\src\bwapi\BWAPILIB\BulletType.cpp" />
@@ -58,11 +65,13 @@
     <ClCompile Include="..\..\src\bwapi\shared\UnitShared.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Command.h" />
+    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Convenience.h" />
     <ClInclude Include="..\..\src\bwapi\shared\Templates.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>BWAPILIB</ProjectName>
-    <ProjectGuid>{4BF551AD-18E0-4272-BB42-41C4DB3E02D8}</ProjectGuid>
+    <ProjectName>BWAPI</ProjectName>
+    <ProjectGuid>{16402859-D8EA-435E-9DA9-7E8D47E54D4A}</ProjectGuid>
     <RootNamespace>ExampleAIModule</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
