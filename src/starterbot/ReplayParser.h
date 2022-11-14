@@ -7,9 +7,12 @@ class ReplayParser
 {
     std::ofstream m_fout;
 
+    std::string getUnitString(BWAPI::Unit unit);
+
 public:
 
     ReplayParser();
+
 
     // functions that are triggered by various BWAPI events from main.cpp
 	void onStart();

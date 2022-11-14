@@ -1,6 +1,8 @@
 #include "ReplayParser.h"
 #include "Tools.h"
 
+#include <sstream>
+
 ReplayParser::ReplayParser()
 {
     
@@ -51,13 +53,7 @@ void ReplayParser::onUnitDestroy(BWAPI::Unit unit)
     const BWAPI::UnitType type = unit->getType();
     if (type.isBuilding() && !unit->getPlayer()->isNeutral())
     {
-        BWAPI::Position tl(unit->getPosition().x - type.dimensionLeft(), unit->getPosition().y - type.dimensionUp());
-        BWAPI::Position br(unit->getPosition().x + type.dimensionRight(), unit->getPosition().y + type.dimensionDown());
-
-        m_fout << BWAPI::Broodwar->getFrameCount();
-        m_fout << " destroy " << unit->getID() << " " << type.getName();
-        m_fout << " " << tl.x << " " << tl.y << " " << br.x << " " << br.y;
-        m_fout << "\n";
+        m_fout << BWAPI::Broodwar->getFrameCount() << " destroy " << getUnitString(unit) << "\n";
     }
 }
 
@@ -68,13 +64,7 @@ void ReplayParser::onUnitMorph(BWAPI::Unit unit)
     const BWAPI::UnitType type = unit->getType();
     if (type.isBuilding() && !unit->getPlayer()->isNeutral())
     {
-        BWAPI::Position tl(unit->getPosition().x - type.dimensionLeft(), unit->getPosition().y - type.dimensionUp());
-        BWAPI::Position br(unit->getPosition().x + type.dimensionRight(), unit->getPosition().y + type.dimensionDown());
-
-        m_fout << BWAPI::Broodwar->getFrameCount();
-        m_fout << " create " << unit->getID() << " " << type.getName();
-        m_fout << " " << tl.x << " " << tl.y << " " << br.x << " " << br.y;
-        m_fout << "\n";
+        m_fout << BWAPI::Broodwar->getFrameCount() << " create " << getUnitString(unit) << "\n";
     }
 }
 
@@ -92,13 +82,7 @@ void ReplayParser::onUnitCreate(BWAPI::Unit unit)
     const BWAPI::UnitType type = unit->getType();
     if (type.isBuilding() && !unit->getPlayer()->isNeutral())
     {
-        BWAPI::Position tl(unit->getPosition().x - type.dimensionLeft(), unit->getPosition().y - type.dimensionUp());
-        BWAPI::Position br(unit->getPosition().x + type.dimensionRight(), unit->getPosition().y + type.dimensionDown());
-
-        m_fout << BWAPI::Broodwar->getFrameCount();
-        m_fout << " create " << unit->getID() << " " << type.getName();
-        m_fout << " " << tl.x << " " << tl.y << " " << br.x << " " << br.y;
-        m_fout << "\n";
+        m_fout << BWAPI::Broodwar->getFrameCount() << " create " << getUnitString(unit) << "\n";
     }
 }
 
@@ -127,4 +111,16 @@ void ReplayParser::onUnitHide(BWAPI::Unit unit)
 void ReplayParser::onUnitRenegade(BWAPI::Unit unit)
 { 
 	
+}
+
+std::string ReplayParser::getUnitString(BWAPI::Unit unit)
+{
+    const BWAPI::UnitType type = unit->getType();
+    BWAPI::Position tl(unit->getPosition().x - type.dimensionLeft(), unit->getPosition().y - type.dimensionUp());
+    BWAPI::Position br(unit->getPosition().x + type.dimensionRight(), unit->getPosition().y + type.dimensionDown());
+
+    std::stringstream ss;
+    ss << unit->getPlayer()->getID() << " " << unit->getID() << " " << type.getName();
+    ss << " " << tl.x << " " << tl.y << " " << br.x << " " << br.y;
+    return ss.str();
 }
