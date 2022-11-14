@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Grid.hpp" />
-    <ClInclude Include="..\..\src\MapTools.h" />
-    <ClInclude Include="..\..\src\StarterBot.h" />
-    <ClInclude Include="..\..\src\Tools.h" />
+    <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
+    <ClInclude Include="..\..\src\starterbot\MapTools.h" />
+    <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
+    <ClInclude Include="..\..\src\starterbot\Tools.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\main.cpp" />
-    <ClCompile Include="..\..\src\MapTools.cpp" />
-    <ClCompile Include="..\..\src\StarterBot.cpp" />
-    <ClCompile Include="..\..\src\Tools.cpp" />
+    <ClCompile Include="..\..\src\starterbot\main.cpp" />
+    <ClCompile Include="..\..\src\starterbot\MapTools.cpp" />
+    <ClCompile Include="..\..\src\starterbot\StarterBot.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>
