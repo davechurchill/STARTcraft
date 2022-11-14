@@ -21,12 +21,6 @@ void StarterBot::onStart()
     m_mapTools.onStart();
 }
 
-// Called whenever the game ends and tells you if you won or not
-void StarterBot::onEnd(bool isWinner) 
-{
-    std::cout << "We " << (isWinner ? "won!" : "lost!") << "\n";
-}
-
 // Called on each frame of the game
 void StarterBot::onFrame()
 {
@@ -111,6 +105,12 @@ void StarterBot::drawDebugInformation()
     BWAPI::Broodwar->drawTextScreen(BWAPI::Position(10, 10), "Hello, World!\n");
     Tools::DrawUnitCommands();
     Tools::DrawUnitBoundingBoxes();
+}
+
+// Called whenever the game ends and tells you if you won or not
+void StarterBot::onEnd(bool isWinner)
+{
+    std::cout << "We " << (isWinner ? "won!" : "lost!") << "\n";
 }
 
 // Called whenever a unit is destroyed, with a pointer to the unit

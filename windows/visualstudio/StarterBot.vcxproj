@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
     <ClInclude Include="..\..\src\starterbot\MapTools.h" />
+    <ClInclude Include="..\..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
     <ClInclude Include="..\..\src\starterbot\Tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\main.cpp" />
     <ClCompile Include="..\..\src\starterbot\MapTools.cpp" />
+    <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />
     <ClCompile Include="..\..\src\starterbot\StarterBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
   </ItemGroup>
