@@ -19,86 +19,49 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\BulletImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\Client.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\ForceImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\GameImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\PlayerImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\RegionImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPIClient\UnitImpl.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\AIModule.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\BroodwarOutputDevice.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\BulletType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\BWAPI.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Color.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\DamageType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Error.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Event.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\ExplosionType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Filters.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Forceset.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Game.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\GameType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Order.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Player.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Playerset.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\PlayerType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Position.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Race.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Region.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Regionset.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Streams.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\TechType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Unit.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\UnitCommand.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\UnitCommandType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\Unitset.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\UnitSizeType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\UnitType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\UpgradeType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\BWAPILIB\WeaponType.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\BulletShared.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\ForceShared.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\GameShared.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\PlayerShared.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\RegionShared.cpp" />
-    <ClCompile Include="..\..\src\bwapi\shared\UnitShared.cpp" />
+    <ClInclude Include="..\src\starterbot\Grid.hpp" />
+    <ClInclude Include="..\src\starterbot\MapTools.h" />
+    <ClInclude Include="..\src\starterbot\ReplayParser.h" />
+    <ClInclude Include="..\src\starterbot\StarterBot.h" />
+    <ClInclude Include="..\src\starterbot\Tools.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Command.h" />
-    <ClInclude Include="..\..\src\bwapi\BWAPIClient\Convenience.h" />
-    <ClInclude Include="..\..\src\bwapi\shared\Templates.h" />
+    <ClCompile Include="..\src\starterbot\main.cpp" />
+    <ClCompile Include="..\src\starterbot\MapTools.cpp" />
+    <ClCompile Include="..\src\starterbot\ReplayParser.cpp" />
+    <ClCompile Include="..\src\starterbot\StarterBot.cpp" />
+    <ClCompile Include="..\src\starterbot\Tools.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>BWAPI</ProjectName>
-    <ProjectGuid>{16402859-D8EA-435E-9DA9-7E8D47E54D4A}</ProjectGuid>
+    <ProjectName>StarterBot</ProjectName>
+    <ProjectGuid>{B2D2AD6C-D98B-42D0-8E4B-3C79D9DB27B7}</ProjectGuid>
     <RootNamespace>ExampleAIModule</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -121,12 +84,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -147,25 +106,37 @@
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
     <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CodeAnalysisIgnoreGeneratedCode>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <GenerateManifest>false</GenerateManifest>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\..\bin\</OutDir>
+    <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <GenerateManifest>false</GenerateManifest>
-    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\..\bin\</OutDir>
+    <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <LibraryPath>$(SolutionDir)\$(Platform)\$(Configuration)\BWAPI;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\..\bin\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src/bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -180,7 +151,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>../bwapi/lib/Debug/BWAPILIB.lib;../bwapi/lib/Debug/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -190,7 +161,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src/bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -205,7 +176,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>../bwapi/lib/Debug/BWAPILIB.lib;../bwapi/lib/Debug/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
@@ -215,7 +186,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src/bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -237,7 +208,7 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>../bwapi/lib/Release/BWAPILIB.lib;../bwapi/lib/Release/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -253,7 +224,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../../src/bwapi/include/BWAPI/Client;../../src/bwapi/include;../../src/bwapi/shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src/bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -276,7 +247,7 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>../bwapi/lib/Release/BWAPILIB.lib;../bwapi/lib/Release/BWAPIClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BWAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
