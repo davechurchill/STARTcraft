@@ -7,10 +7,12 @@
 
 class MapTools
 {
+    std::string m_mapName;
     Grid<int>   m_walkable;       // whether a tile is buildable (includes static resources)          
     Grid<int>   m_buildable;      // whether a tile is buildable (includes static resources)
     Grid<int>   m_depotBuildable; // whether a depot is buildable on a tile (illegal within 3 tiles of static resource)
     Grid<int>   m_lastSeen;       // the last time any of our units has seen this position on the map
+    Grid<char>  m_tileType;       // StarDraft tile type
     int         m_width = 0;
     int         m_height = 0;
     int         m_frame = 0;
@@ -19,7 +21,7 @@ class MapTools
     bool canBuild(int tileX, int tileY) const;
     bool canWalk(int tileX, int tileY) const;
     void printMap() const;
-
+    std::string fixMapName(const std::string& s) const;
 
 public:
 
@@ -29,6 +31,8 @@ public:
     void    onFrame();
     void    draw() const;
     void    toggleDraw();
+    void    saveMapToFile(const std::string& str = "") const;
+    const std::string& mapName() const;
 
     int     width() const;
     int     height() const;

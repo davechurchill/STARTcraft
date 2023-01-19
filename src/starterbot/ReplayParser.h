@@ -2,9 +2,12 @@
 
 #include <BWAPI.h>
 #include <fstream>
+#include "MapTools.h"
 
 class ReplayParser
 {
+    MapTools m_map;
+
     std::ofstream m_fout;
 
     std::string getUnitString(BWAPI::Unit unit);

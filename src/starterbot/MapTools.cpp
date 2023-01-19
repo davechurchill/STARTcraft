@@ -11,14 +11,21 @@ MapTools::MapTools()
     
 }
 
+const std::string& MapTools::mapName() const
+{
+    return m_mapName;
+}
+
 void MapTools::onStart()
 {
+    m_mapName        = fixMapName(BWAPI::Broodwar->mapName());
     m_width          = BWAPI::Broodwar->mapWidth();
     m_height         = BWAPI::Broodwar->mapHeight();
     m_walkable       = Grid<int>(m_width, m_height, 1);
     m_buildable      = Grid<int>(m_width, m_height, 0);
     m_depotBuildable = Grid<int>(m_width, m_height, 0);
     m_lastSeen       = Grid<int>(m_width, m_height, 0);
+    m_tileType       = Grid<char>(m_width, m_height, 0);
 
     // Set the boolean grid data from the Map
     for (int x(0); x < m_width; ++x)
@@ -46,6 +53,9 @@ void MapTools::onStart()
         {
             for (int y=tileY; y<tileY+resource->getType().tileHeight(); ++y)
             {
+                if (resource->getType().isMineralField()) { m_tileType.set(x, y, 'M'); }
+                else { m_tileType.set(x, y, 'G'); }
+
                 m_buildable.set(x, y, false);
 
                 // depots can't be built within 3 tiles of any resource
@@ -62,6 +72,20 @@ void MapTools::onStart()
                     }
                 }
             }
+        }
+    }
+
+    // set the other tile types
+    for (int x(0); x < m_width; ++x)
+    {
+        for (int y(0); y < m_height; ++y)
+        {
+            // if it has a type already it's a mineral or a gas
+            if (m_tileType.get(x, y) != 0) { continue; }
+            if (isBuildable(x, y) && !isDepotBuildableTile(x, y)) { m_tileType.set(x, y, 'D'); continue; }
+            if (isBuildable(x,y)) { m_tileType.set(x, y, 'B'); continue; }
+            if (isWalkable(x,y)) { m_tileType.set(x, y, 'W'); continue; }
+            if (!isWalkable(x,y)) { m_tileType.set(x, y, 'U'); continue; }
         }
     }
 }
@@ -147,6 +171,47 @@ bool MapTools::isBuildable(int tileX, int tileY) const
 bool MapTools::isBuildable(const BWAPI::TilePosition & tile) const
 {
     return isBuildable(tile.x, tile.y);
+}
+
+// saves the map to a file in the StarDraft map format
+// https://github.com/davechurchill/stardraft/wiki/Map-File-Syntax
+void MapTools::saveMapToFile(const std::string& str) const
+{
+    std::string path = str;
+    if (path.length() == 0) 
+    { 
+        path = m_mapName + ".txt";
+    }
+
+    std::ofstream fout(path);
+
+    // print the width and height of the map
+    fout << width() << " " << height() << "\n";
+
+    // print all the possible starting locations
+    fout << BWAPI::Broodwar->getStartLocations().size();
+    for (auto tile : BWAPI::Broodwar->getStartLocations())
+    {
+        fout << " " << tile.x << " " << tile.y;
+    }   fout << "\n";
+
+    // print the character of the type of tile this is
+    for (size_t y = 0; y < height(); y++)
+    {
+        for (size_t x = 0; x < width(); x++)
+        {
+            fout << m_tileType.get(x, y);
+        }   fout << "\n";
+    }
+
+    // print out the walk tiles
+    for (size_t y = 0; y < height()*4; y++)
+    {
+        for (size_t x = 0; x < width()*4; x++)
+        {
+            fout << BWAPI::Broodwar->isWalkable((int)x, (int)y) ? '0' : '1';
+        }   fout << "\n";
+    }
 }
 
 void MapTools::printMap() const
@@ -280,4 +345,19 @@ void MapTools::draw() const
     BWAPI::Broodwar->drawTextScreen(60, 75, "%cCan't Build Depot", white);
 
     
+}
+
+std::string MapTools::fixMapName(const std::string& s) const
+{
+    std::stringstream ss;
+
+    for (auto c : s)
+    {
+        if (std::isalnum(c) || c == '.')
+        {
+            ss << c;
+        }
+    }
+
+    return ss.str();
 }

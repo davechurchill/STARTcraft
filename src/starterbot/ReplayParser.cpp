@@ -11,16 +11,23 @@ ReplayParser::ReplayParser()
 // Called when the bot starts!
 void ReplayParser::onStart()
 {
+    m_map.onStart();
+    m_map.onFrame();
+    m_map.saveMapToFile();
+
     // Set the game to run at super speed so we can parse the replay faster
-	//BWAPI::Broodwar->setLocalSpeed(0);
+	BWAPI::Broodwar->setLocalSpeed(0);
     //BWAPI::Broodwar->setFrameSkip(1024);
 
     // set up a file to write the output to
     m_fout = std::ofstream("ReplayData.txt");
+    m_fout << "map " << (m_map.mapName() + ".txt") << "\n";
 }
     
 void ReplayParser::onFrame()
 {
+    m_map.onFrame();
+
     // Draw all unit commands and target positions
     for (auto unit : BWAPI::Broodwar->getAllUnits())
     {
