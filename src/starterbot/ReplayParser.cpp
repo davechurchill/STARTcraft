@@ -17,17 +17,25 @@ void ReplayParser::onStart()
 
     // Set the game to run at super speed so we can parse the replay faster
 	BWAPI::Broodwar->setLocalSpeed(0);
-    //BWAPI::Broodwar->setFrameSkip(1024);
+    BWAPI::Broodwar->setFrameSkip(1024);
 
     // set up a file to write the output to
-    m_fout = std::ofstream("ReplayData.txt");
-    m_fout << "map " << (m_map.mapName() + ".txt") << "\n";
+    m_fout = std::ofstream("replaydata/" + BWAPI::Broodwar->mapFileName() + ".txt");
+    m_fout << "map maps/" << (m_map.mapName() + ".txt") << "\n";
 }
     
 void ReplayParser::onFrame()
 {
     m_map.onFrame();
 
+    //drawUnitCommands();
+    logUnitCommands();
+    // Draw unit health bars, which brood war unfortunately does not do
+    //Tools::DrawUnitHealthBars();
+}
+
+void ReplayParser::drawUnitCommands()
+{
     // Draw all unit commands and target positions
     for (auto unit : BWAPI::Broodwar->getAllUnits())
     {
@@ -44,9 +52,51 @@ void ReplayParser::onFrame()
             BWAPI::Broodwar->drawTextMap(p1, unit->getOrder().getName().c_str());
         }
     }
+}
 
-    // Draw unit health bars, which brood war unfortunately does not do
-    Tools::DrawUnitHealthBars();
+void ReplayParser::logUnitCommands()
+{
+    for (auto unit : BWAPI::Broodwar->getAllUnits())
+    {
+        if (unit->getPlayer()->isNeutral()) { continue; }
+        if (unit->isFlying()) { continue; }
+        if (unit->getType().isBuilding()) { continue; }
+
+        // we only care about move or attack move
+        auto order = unit->getOrder().getID();
+        if (order != BWAPI::Orders::Move &&
+            order != BWAPI::Orders::AttackMove)
+        {
+            continue;
+        }
+
+        bool newCommand = false;
+        BWAPI::Position upos = unit->getPosition();
+        BWAPI::Position tpos = unit->getOrderTargetPosition();
+        auto it = m_unitCommands.find(unit->getID());
+
+        if (it == m_unitCommands.end())
+        {
+            newCommand = true;
+            m_unitCommands[unit->getID()] = tpos;
+        }
+        else
+        {
+            if (it->second != tpos)
+            {
+                newCommand = true;
+                m_unitCommands[unit->getID()] = tpos;
+            }
+        }
+
+        if (newCommand)
+        {
+            m_fout << BWAPI::Broodwar->getFrameCount() << " query ";
+            m_fout << unit->getPlayer()->getID() << " " << unit->getID() << " " << unit->getType().getName() << " ";
+            m_fout << unit->getOrder().getName() << " ";
+            m_fout << upos.x << " " << upos.y << " " << tpos.x << " " << tpos.y << "\n";
+        }
+    }
 }
 
 void ReplayParser::onEnd(bool isWinner) 

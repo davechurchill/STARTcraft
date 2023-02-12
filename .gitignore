@@ -11,6 +11,7 @@ starcraft/*.dll
 starcraft/*.ini
 starcraft/*.MPQ
 starcraft/*.mpq
+starcraft/Errors
 starcraftfull
 *.sdf
 *.suo
@@ -36,3 +37,4 @@ bin/StarterBot_d.exe
 bin/ReplayData.txt
 bin/ReplayParser.exe
 bin/RunReplayParserAndStarcraft.bat
+bin/replaydata

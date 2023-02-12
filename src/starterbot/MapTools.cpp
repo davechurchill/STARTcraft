@@ -180,7 +180,7 @@ void MapTools::saveMapToFile(const std::string& str) const
     std::string path = str;
     if (path.length() == 0) 
     { 
-        path = m_mapName + ".txt";
+        path = "replaydata/maps/" + m_mapName + ".txt";
     }
 
     std::ofstream fout(path);

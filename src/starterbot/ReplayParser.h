@@ -2,6 +2,7 @@
 
 #include <BWAPI.h>
 #include <fstream>
+#include <map>
 #include "MapTools.h"
 
 class ReplayParser
@@ -10,6 +11,10 @@ class ReplayParser
 
     std::ofstream m_fout;
 
+    std::map<int, BWAPI::Position> m_unitCommands;
+
+    void logUnitCommands();
+    void drawUnitCommands();
     std::string getUnitString(BWAPI::Unit unit);
 
 public:
