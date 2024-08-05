@@ -6,7 +6,7 @@
 #include "UnitImpl.h"
 #include "GameTable.h"
 
-#include <Windows.h>
+#include <windows.h>
 
 
 namespace BWAPI
@@ -28,7 +28,7 @@ namespace BWAPI
     HANDLE      mapFileHandle;
     HANDLE      gameTableFileHandle;
     GameTable*  gameTable = nullptr;
-    
+
     bool connected = false;
   };
   extern Client BWAPIClient;
