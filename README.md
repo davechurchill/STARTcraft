@@ -1,13 +1,6 @@
-# STARTcraft
+# AutoPilot
 
-Get started with Starcraft: BroodWar AI Development as fast as possible.
-
-New to StarCraft or AI Programming? Watch the tutorial video(s):
-* Starcraft AI Intro: https://www.youtube.com/watch?v=czhNqUxmLks
-* STARTcraft Tutorial: https://www.youtube.com/watch?v=FEEkO6__GKw
-
-Currently Supported (more coming soon):
-* Windows / C++ Development using BWAPI
+A fork of STARTcraft (https://github.com/davechurchill/STARTcraft) for the University of Portland capstone team.
 
 # Setup Instructions:
 
