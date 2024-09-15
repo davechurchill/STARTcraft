@@ -32,7 +32,7 @@ starcraftfull
 *.pdb
 *.ilk
 *.ERR
-bin/StarterBot_d.exe
+bin/StarterBot.exe
 bin/StarterBot_d.exe
 bin/ReplayData.txt
 bin/ReplayParser.exe

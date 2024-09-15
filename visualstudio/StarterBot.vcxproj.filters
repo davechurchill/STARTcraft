@@ -8,7 +8,7 @@
     <ClCompile Include="..\src\starterbot\Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\starterbot\Grid.hpp" />
+    <ClInclude Include="..\src\starterbot\Grid.h" />
     <ClInclude Include="..\src\starterbot\MapTools.h" />
     <ClInclude Include="..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\src\starterbot\StarterBot.h" />
