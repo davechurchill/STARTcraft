@@ -40,5 +40,5 @@ bin/RunReplayParserAndStarcraft.bat
 bin/replaydata
 # Linux
 bin_linux/src
-!libgcc_s_seh-1.dll
+!libgcc_s_dw2-1.dll
 !libstdc++-6.dll

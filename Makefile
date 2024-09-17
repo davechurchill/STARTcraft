@@ -5,7 +5,7 @@ TARGET_EXEC := StarterBot.exe
 BIN_DIR := ./bin_linux
 SRC_DIR := ./src
 
-CXX := x86_64-w64-mingw32-g++
+CXX := i686-w64-mingw32-g++
 
 SRCS := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJS := $(SRCS:%=$(BIN_DIR)/%.o)
