@@ -36,6 +36,10 @@ void StarterBot::onFrame()
     // Build more supply if we are going to run out soon
     buildAdditionalSupply();
 
+    // Build Gatways and Cybernetics Cores
+    buildNumberOfUnits(BWAPI::UnitTypes::Enum::Protoss_Gateway, 2);
+    buildNumberOfUnits(BWAPI::UnitTypes::Enum::Protoss_Cybernetics_Core, 1);
+
     // Draw unit health bars, which brood war unfortunately does not do
     Tools::DrawUnitHealthBars();
 
@@ -77,6 +81,22 @@ void StarterBot::trainAdditionalWorkers()
         // if we have a valid depot unit and it's currently not training something, train a worker
         // there is no reason for a bot to ever use the unit queueing system, it just wastes resources
         if (myDepot && !myDepot->isTraining()) { myDepot->train(workerType); }
+    }
+}
+
+// Continuously checks if [numberWanted] units of type [type] exist; if they don't, build more
+void StarterBot::buildNumberOfUnits(BWAPI::UnitType type, int numberWanted)
+{
+    // counts how many units of that type exist (built or under construction)
+    const int numUnits = Tools::CountUnitsOfType(type, BWAPI::Broodwar->self()->getUnits());
+
+    // cancel if number of units wanted is satisfied
+    if (numUnits >= numberWanted) { return; }
+
+    // attempt to build it
+    const bool startedBuilding = Tools::BuildBuilding(type);
+    if (startedBuilding) {
+        BWAPI::Broodwar->printf("Started Building %s", type.getName().c_str());
     }
 }
 

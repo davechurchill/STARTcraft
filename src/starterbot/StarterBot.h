@@ -17,6 +17,8 @@ public:
     void trainAdditionalWorkers();
     void buildAdditionalSupply();
     void drawDebugInformation();
+	
+	void buildNumberOfUnits(BWAPI::UnitType type, int numberWanted);
 
     // functions that are triggered by various BWAPI events from main.cpp
 	void onStart();
