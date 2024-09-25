@@ -1,124 +1,112 @@
-#include <BWAPI.h>
+#include "AutoPilotBot.h"
+#include "Tools.h"
+
 #include <BWAPI/Client.h>
-#include "StarterBot.h"
-#include "ReplayParser.h"
+
 #include <iostream>
 #include <thread>
 #include <chrono>
 
-void PlayGame();
-void ParseReplay();
+bw::Client& g_client = bw::BWAPIClient;
+int g_gameCount = 0;
 
-int main(int argc, char * argv[])
-{
-    size_t gameCount = 0;
-
-    // if we are not currently connected to BWAPI, try to reconnect
-    while (!BWAPI::BWAPIClient.connect())
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds{ 1000 });
-    }
-
-    // if we have connected to BWAPI
-    while (BWAPI::BWAPIClient.isConnected())
-    {
-        // the starcraft exe has connected but we need to wait for the game to start
-        std::cout << "Waiting for game start\n";
-        while (BWAPI::BWAPIClient.isConnected() && !BWAPI::Broodwar->isInGame())
-        {
-            BWAPI::BWAPIClient.update();
-        }
-
-        // Check to see if Starcraft shut down somehow
-        if (BWAPI::BroodwarPtr == nullptr) { break; }
-
-        // If we are successfully in a game, call the module to play the game
-        if (BWAPI::Broodwar->isInGame())
-        {
-            if (!BWAPI::Broodwar->isReplay()) 
-            { 
-                std::cout << "Playing Game " << gameCount++ << " on map " << BWAPI::Broodwar->mapFileName() << "\n";
-                PlayGame(); 
-            }
-            else 
-            { 
-                std::cout << "Parsing Replay " << gameCount++ << " on map " << BWAPI::Broodwar->mapFileName() << "\n";
-                ParseReplay(); 
-            }
-        }
-    }
-
-	return 0;
-}
-
-void PlayGame()
-{
-    StarterBot bot;
-
-    // The main game loop, which continues while we are connected to BWAPI and in a game
-    while (BWAPI::BWAPIClient.isConnected() && BWAPI::Broodwar->isInGame())
-    {
-        // Handle each of the events that happened on this frame of the game
-        for (const BWAPI::Event& e : BWAPI::Broodwar->getEvents())
-        {
-            switch (e.getType())
-            {
-                case BWAPI::EventType::MatchStart:   { bot.onStart();                       break; }
-                case BWAPI::EventType::MatchFrame:   { bot.onFrame();                       break; }
-                case BWAPI::EventType::MatchEnd:     { bot.onEnd(e.isWinner());             break; }
-                case BWAPI::EventType::UnitShow:     { bot.onUnitShow(e.getUnit());         break; }
-                case BWAPI::EventType::UnitHide:     { bot.onUnitHide(e.getUnit());         break; }
-                case BWAPI::EventType::UnitCreate:   { bot.onUnitCreate(e.getUnit());       break; }
-                case BWAPI::EventType::UnitMorph:    { bot.onUnitMorph(e.getUnit());        break; }
-                case BWAPI::EventType::UnitDestroy:  { bot.onUnitDestroy(e.getUnit());      break; }
-                case BWAPI::EventType::UnitRenegade: { bot.onUnitRenegade(e.getUnit());     break; }
-                case BWAPI::EventType::UnitComplete: { bot.onUnitComplete(e.getUnit());     break; }
-                case BWAPI::EventType::SendText:     { bot.onSendText(e.getText());         break; }
-            }
-        }
-
-        BWAPI::BWAPIClient.update();
-        if (!BWAPI::BWAPIClient.isConnected())
-        {
-            std::cout << "Disconnected\n";
+static void handleEvents(AutoPilotBot& bot) {
+    for (const bw::Event& e : g_game->getEvents()) {
+        switch (e.getType()) {
+        case bw::EventType::MatchStart:
+            bot.onStart(g_gameCount);
+            break;
+        case bw::EventType::MatchFrame:
+            bot.onFrame();
+            bot.onDraw();
+            break;
+        case bw::EventType::MatchEnd:
+            bot.onEnd(e.isWinner());
+            break;
+        case bw::EventType::SendText:
+            bot.onSendText(e.getText());
+            break;
+        case bw::EventType::UnitCreate:
+            bot.onUnitCreate(e.getUnit());
+            break;
+        case bw::EventType::UnitDestroy:
+            bot.onUnitDestroy(e.getUnit());
+            break;
+        case bw::EventType::UnitComplete:
+            bot.onUnitComplete(e.getUnit());
+            break;
+        case bw::EventType::UnitMorph:
+            bot.onUnitMorph(e.getUnit());
+            break;
+        case bw::EventType::UnitRenegade:
+            bot.onUnitRenegade(e.getUnit());
+            break;
+        case bw::EventType::UnitEvade:
+            bot.onUnitEvade(e.getUnit());
+            break;
+        case bw::EventType::UnitDiscover:
+            bot.onUnitDiscover(e.getUnit());
+            break;
+        case bw::EventType::UnitHide:
+            bot.onUnitHide(e.getUnit());
+            break;
+        case bw::EventType::UnitShow:
+            bot.onUnitShow(e.getUnit());
             break;
         }
     }
-
-    std::cout << "Game Over\n";
 }
 
-void ParseReplay()
-{
-    ReplayParser parser;
+static void playGame(AutoPilotBot& bot) {
+    std::cout << "\n### Waiting for game" << std::endl;
 
-    // The main game loop, which continues while we are connected to BWAPI and in a game
-    while (BWAPI::BWAPIClient.isConnected() && BWAPI::Broodwar->isInGame())
-    {
-        // Handle each of the events that happened on this frame of the game
-        for (const BWAPI::Event& e : BWAPI::Broodwar->getEvents())
-        {
-            switch (e.getType())
-            {
-            case BWAPI::EventType::MatchStart:   { parser.onStart();                       break; }
-            case BWAPI::EventType::MatchFrame:   { parser.onFrame();                       break; }
-            case BWAPI::EventType::MatchEnd:     { parser.onEnd(e.isWinner());             break; }
-            case BWAPI::EventType::UnitShow:     { parser.onUnitShow(e.getUnit());         break; }
-            case BWAPI::EventType::UnitHide:     { parser.onUnitHide(e.getUnit());         break; }
-            case BWAPI::EventType::UnitCreate:   { parser.onUnitCreate(e.getUnit());       break; }
-            case BWAPI::EventType::UnitMorph:    { parser.onUnitMorph(e.getUnit());        break; }
-            case BWAPI::EventType::UnitDestroy:  { parser.onUnitDestroy(e.getUnit());      break; }
-            case BWAPI::EventType::UnitRenegade: { parser.onUnitRenegade(e.getUnit());     break; }
-            case BWAPI::EventType::UnitComplete: { parser.onUnitComplete(e.getUnit());     break; }
-            case BWAPI::EventType::SendText:     { parser.onSendText(e.getText());         break; }
-            }
+    // While there's no game playing, just keep updating the client and looping. If we
+    // disconnect at any point, return.
+    while (!g_game->isInGame()) {
+        if (!g_client.isConnected()) {
+            return;
         }
 
-        BWAPI::BWAPIClient.update();
-        if (!BWAPI::BWAPIClient.isConnected())
-        {
-            std::cout << "Disconnected\n";
+        g_client.update();
+    }
+
+    // The game has started, so initialize our global player variable.
+    std::cout << "### Game started" << std::endl;
+    g_self = g_game->self();
+
+    // Now we have the main bot loop: repeatedly handle any events that come our way and
+    // update the client. Again, if we disconnect at any point, return.
+    while (g_game->isInGame()) {
+        if (!g_client.isConnected()) {
             break;
         }
+
+        handleEvents(bot);
+        g_client.update();
     }
+
+    // Now that the game has finished, increase game count.
+    std::cout << "### Game completed" << std::endl;
+    g_gameCount++;
+}
+
+int main() {
+    std::cout << "AutoPilot Bot - University of Portland" << std::endl;
+    std::cout << "https://github.com/v-rob/AutoPilot" << std::endl;
+
+    // Try to connect to StarCraft. If it fails, wait a second and try again.
+    while (!g_client.connect()) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    }
+    std::cout << "### Connected" << std::endl;
+
+    // As long as we're connected to StarCraft, keep playing games.
+    AutoPilotBot bot;
+
+    while (g_client.isConnected()) {
+        playGame(bot);
+    }
+
+    std::cout << "\n### Disconnected" << std::endl;
+    return 0;
 }
