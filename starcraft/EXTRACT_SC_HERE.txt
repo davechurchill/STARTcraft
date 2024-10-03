@@ -1,5 +1,0 @@
-Download and extract this zip file to this folder:
-
-http://www.cs.mun.ca/~dchurchill/startcraft/scbw_bwapi440.zip
-
-You can actually put this wherever you want, however you will need to edit the RunC++BotAndStarcraft.bat to CD to the correct directory.

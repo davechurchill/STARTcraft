@@ -21,11 +21,13 @@
   <ItemGroup>
     <ClInclude Include="..\src\starterbot\AutoPilotBot.h" />
     <ClInclude Include="..\src\starterbot\Tools.h" />
+    <ClInclude Include="WorkerManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\starterbot\main.cpp" />
     <ClCompile Include="..\src\starterbot\AutoPilotBot.cpp" />
     <ClCompile Include="..\src\starterbot\Tools.cpp" />
+    <ClCompile Include="WorkerManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>
