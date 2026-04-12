@@ -28,5 +28,3 @@ STARTcraft comes with a StarterBot written in C++ using BWAPI 4.4.0. This repo c
 4. Install wine using: `sudo dpkg --add-architecture i386 && sudo apt update && sudo apt install wine`. You can skip this step if you use [WINE_AppImage](https://github.com/mmtrt/WINE_AppImage) or something similar, but in this case you should modify `WINEPREFIX` and the path to wine in `bin_linux/RunStarterBotAndStarcraft.sh`.
 5. Run `bash bin_linux/RunStarterBotAndStarcraft.sh` which will launch the bot executable and Starcraft / BWAPI
 6. Modify the code in any preferred editor / recompile the code using: `make`
-
-Note. In the `bin_linux` folder, the `libgcc_s_dw2-1.dll` and `libstdc++-6.dll` files are exactly the same ones you will find in `/usr/lib/gcc/i686-w64-mingw32/12-win32` after installing Mingw-w64.
